@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTC Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+</head>
+<body>
+    <div class="dashboard">
+        <h1>BTC Dashboard</h1>
+        <div class="stats">
+            <div class="stat">
+                <span class="label">Price:</span>
+                <span hx-get="/api/v1/price" hx-swap="innerHTML" hx-trigger="load, every 1s" class="value" id="price">$0.00</span>
+            </div>
+            <div class="stat">
+                <span class="label">Block Height:</span>
+                <span hx-get="/api/v1/blockheight" hx-swap="innerHTML" hx-trigger="load, every 1s" class="value" id="blockHeight">0</span>
+            </div>
+            <div class="stat">
+                <span class="label">Blocks to Halving:</span>
+                <span hx-get="/api/v1/blockstohalving" hx-swap="innerHTML" hx-trigger="load, every 1s" class="value" id="blocksToHalving">0</span>
+            </div>
+            <div class="stat">
+                <span class="label">Sats per Dollar:</span>
+                <span hx-get="/api/v1/satsperdollar" hx-swap="innerHTML" hx-trigger="load, every 1s" class="value" id="satsPerDollar">0</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,80 @@
+:root {
+    --background-color: #121212;
+    --text-color: #c0c0c0;
+    --primary-color: #21c55d;
+    --dashboard-bg-color: #1a1a1a;
+    --stat-bg-color: #333;
+    --border-color: #555;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.dashboard {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    background-color: var(--dashboard-bg-color);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+h1 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.stat {
+    background-color: var(--stat-bg-color);
+    padding: 20px;
+    border-radius: 5px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.stat:hover {
+    transform: translateY(-5px);
+    background-color: #404040;
+}
+
+.label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.value {
+    margin-left: auto;
+    font-size: 16px;
+    color: var(--primary-color);
+}
+
+/* Add subtle animations for loading content */
+@keyframes loadingAnimation {
+    0% { background-color: #333; }
+    50% { background-color: #444; }
+    100% { background-color: #333; }
+}
+
+.value::before {
+    content: "";
+    animation: loadingAnimation 1s infinite;
+}
